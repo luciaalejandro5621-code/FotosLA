@@ -499,7 +499,7 @@
 <section id="screen-setup" class="screen">
   <div class="setup-card" style="max-width:360px;text-align:center;">
     <div class="setup-logo">
-      <h1>Álbum de <em>Vida</em></h1>
+      <h1>Nuestro <em>Álbum</em></h1>
       <div class="rule" style="width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.3),transparent);margin:.7rem auto .6rem;"></div>
       <p style="font-size:.82rem;color:rgba(245,234,216,.35);letter-spacing:.08em;font-style:italic;">Inicia sesión con Google para continuar</p>
     </div>
@@ -523,10 +523,10 @@
   </div>
   <div class="home-inner" id="shelf-trigger" tabindex="0" role="button" aria-label="Explorar mis etapas">
     <div class="home-ornament">✦ ✦ ✦</div>
-    <h1 id="home-title">Mis <em>Etapas</em></h1>
-    <p id="home-sub">Álbum de vida</p>
+    <h1 id="home-title">Nuestro <em>Amor</em></h1>
+    <p id="home-sub">Un año, un capítulo</p>
     <div class="home-divider"></div>
-    <p id="home-hint">✦ &nbsp; Explorar mis etapas &nbsp; ✦</p>
+    <p id="home-hint">✦ &nbsp; Ver nuestros años &nbsp; ✦</p>
   </div>
 </section>
 
@@ -536,13 +536,13 @@
 <section id="screen-catalog" class="screen hidden">
   <div class="shelf-header">
     <button id="btn-back">← Volver</button>
-    <span class="shelf-title">Mis Etapas</span>
+    <span class="shelf-title">Nuestros Años</span>
     <span></span>
   </div>
   <div class="shelf-scroll">
     <div class="loading-shelf" id="shelf-loading">
       <div class="spinner"></div>
-      <p>Cargando etapas…</p>
+      <p>Cargando nuestros años…</p>
     </div>
     <div class="shelf-grid" id="shelf-grid" style="display:none;"></div>
   </div>
@@ -613,10 +613,8 @@ document.getElementById('btn-connect').addEventListener('click', async () => {
     const me = await driveGet('https://www.googleapis.com/oauth2/v2/userinfo');
     const firstName = (me.name || '').split(' ')[0] || '';
 
-    document.getElementById('home-title').innerHTML = firstName
-      ? `${firstName}'s <em>Etapas</em>`
-      : 'Mis <em>Etapas</em>';
-    document.getElementById('home-sub').textContent  = 'Álbum de vida · LA';
+    document.getElementById('home-title').innerHTML = `Nuestro <em>Amor</em>`;
+    document.getElementById('home-sub').textContent  = 'Un año, un capítulo';
     document.getElementById('user-name').textContent = me.name || me.email || '';
 
     stageNames = JSON.parse(localStorage.getItem('stage-names')||'{}');
@@ -758,7 +756,7 @@ function renderShelf(){
     book.className = 'book-mini';
     book.setAttribute('role','button');
     book.setAttribute('tabindex','0');
-    book.setAttribute('aria-label',`Etapa ${stage.num}`);
+    book.setAttribute('aria-label',`Año ${stage.num}`);
 
     book.innerHTML = `
       <div class="bm-spine"></div>
@@ -775,7 +773,7 @@ function renderShelf(){
     const nameInput = document.createElement('input');
     nameInput.type        = 'text';
     nameInput.className   = 'stage-name-input';
-    nameInput.placeholder = `Etapa ${stage.num}`;
+    nameInput.placeholder = `Año ${stage.num}`;
     nameInput.value       = savedName;
     nameInput.title       = 'Haz clic para editar el nombre de esta etapa';
     nameInput.addEventListener('change', ()=>{
@@ -796,7 +794,7 @@ function renderShelf(){
 async function openBook(stage){
   show('screen-book');
   document.getElementById('book-stage-label').textContent =
-    stageNames[stage.id] ? `${stageNames[stage.id]} · Etapa ${stage.num}` : `Etapa ${stage.num}`;
+    stageNames[stage.id] ? `${stageNames[stage.id]} · Año ${stage.num}` : `Año ${stage.num}`;
 
   const container = document.getElementById('book-pages');
   container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;"><div class="spinner"></div></div>';
@@ -870,10 +868,11 @@ function makePage(type, stage, photo=null, idx=null){
     front.className += ' cover-page';
     const customName = stageNames[stage.id] || '';
     front.innerHTML = `
-      <div class="cover-ornament">✦ ✦ ✦</div>
+      <div class="cover-ornament">♡ ✦ ♡</div>
       <div class="cover-num">${stage.num}</div>
+      <div class="cover-title" style="font-size:.9rem;color:rgba(201,169,110,.5);letter-spacing:.2em;font-family:'Cinzel',serif;font-style:normal;">AÑO</div>
       ${customName ? `<div class="cover-title">${customName}</div>` : ''}
-      <div class="cover-ornament" style="margin-top:.5rem">✦ ✦ ✦</div>`;
+      <div class="cover-ornament" style="margin-top:.5rem">♡ ✦ ♡</div>`;
     back.className += ' blank-page';
     back.innerHTML = '<div class="blank-inner"><div class="blank-ornament">∞</div></div>';
   } else if(type==='photo'){
@@ -886,7 +885,7 @@ function makePage(type, stage, photo=null, idx=null){
   } else {
     // Contraportada
     front.className += ' cover-page';
-    front.innerHTML = `<div class="cover-ornament">✦ ✦ ✦</div><div class="cover-title" style="font-size:1.6rem;margin-top:1rem;color:rgba(201,169,110,.4);">Fin</div>`;
+    front.innerHTML = `<div class="cover-ornament">♡ ✦ ♡</div><div class="cover-title" style="font-size:1.4rem;margin-top:1rem;color:rgba(201,169,110,.4);font-style:italic;">y seguimos…</div>`;
     back.className += ' blank-page';
     back.innerHTML = '<div class="blank-inner"><div class="blank-ornament">∞</div></div>';
   }
