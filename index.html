@@ -493,75 +493,22 @@
 <!-- ═══════════════════════════════════════════════
      PANTALLA 0 — SETUP / CONEXIÓN GOOGLE
 ═══════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     PANTALLA 0 — LOGIN
+═══════════════════════════════════════════════ -->
 <section id="screen-setup" class="screen">
-  <div class="setup-card">
+  <div class="setup-card" style="max-width:360px;text-align:center;">
     <div class="setup-logo">
       <h1>Álbum de <em>Vida</em></h1>
       <div class="rule" style="width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.3),transparent);margin:.7rem auto .6rem;"></div>
-      <p>Conectado con Google Drive · <a href="https://luciaalejandro5621-code.github.io/FotosLA/" target="_blank" style="color:rgba(201,169,110,.5);font-size:.8em;">ver en GitHub Pages</a></p>
+      <p style="font-size:.82rem;color:rgba(245,234,216,.35);letter-spacing:.08em;font-style:italic;">Inicia sesión con Google para continuar</p>
     </div>
-
-    <!-- Instrucciones Google Cloud -->
-    <div class="accordion">
-      <button class="acc-trigger" id="acc-btn" aria-expanded="false">
-        <span>¿Cómo obtener mi Client ID de Google?</span>
-        <span class="arr">▾</span>
-      </button>
-      <div class="acc-body" id="acc-body">
-        <div class="acc-inner">
-          <ol class="steps">
-            <li>Ve a <a href="https://console.cloud.google.com" target="_blank" rel="noopener">console.cloud.google.com</a> e inicia sesión con tu cuenta Google.</li>
-            <li>Crea un proyecto nuevo (o usa uno existente). Ponle el nombre que quieras.</li>
-            <li>En el menú lateral: <strong>APIs y servicios → Biblioteca</strong>. Busca <strong>«Google Drive API»</strong> y haz clic en <strong>Habilitar</strong>.</li>
-            <li>Ve a <strong>APIs y servicios → Pantalla de consentimiento OAuth</strong>. Elige tipo <strong>Externo</strong>, rellena nombre y correo, guarda.</li>
-            <li>Ve a <strong>APIs y servicios → Credenciales → + Crear credencial → ID de cliente de OAuth</strong>.</li>
-            <li>Tipo de aplicación: <strong>Aplicación web</strong>.</li>
-            <li>En <strong>«Orígenes de JavaScript autorizados»</strong> añade:<br/><code>https://luciaalejandro5621-code.github.io</code></li>
-            <li>En <strong>«URIs de redireccionamiento autorizados»</strong> añade:<br/><code>https://luciaalejandro5621-code.github.io/FotosLA/</code></li>
-            <li>Haz clic en <strong>Crear</strong>. Copia el <strong>ID de cliente</strong> y pégalo abajo.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-
-    <!-- Formulario -->
-    <div class="fields">
-      <div class="fg">
-        <label for="f-clientid">Google OAuth Client ID</label>
-        <input type="text" id="f-clientid" placeholder="xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com" autocomplete="off" spellcheck="false" />
-        <span class="hint">Obtenido en el paso 7 de la guía anterior.</span>
-      </div>
-
-      <div class="fg">
-        <label for="f-folder">Nombre de la carpeta en Google Drive</label>
-        <input type="text" id="f-folder" placeholder="Mis Etapas" value="Mis Etapas" />
-        <span class="hint">Las subcarpetas numeradas (1, 2, 3…) serán los álbumes de cada etapa.</span>
-      </div>
-
-      <div class="row2">
-        <div class="fg">
-          <label for="f-birthyear">Año de nacimiento</label>
-          <input type="number" id="f-birthyear" placeholder="1990" min="1900" max="2099" />
-          <span class="hint">Para calcular el año real de cada etapa.</span>
-        </div>
-        <div class="fg">
-          <label for="f-person">Nombre (opcional)</label>
-          <input type="text" id="f-person" placeholder="María" />
-          <span class="hint">Aparece en la pantalla de inicio.</span>
-        </div>
-      </div>
-
-      <div class="fg">
-        <label for="f-sort">Orden de fotos dentro de cada etapa</label>
-        <select id="f-sort">
-          <option value="name">Por nombre de archivo</option>
-          <option value="date" selected>Por fecha (más antigua primero)</option>
-          <option value="date-desc">Por fecha (más reciente primero)</option>
-        </select>
-      </div>
-    </div>
-
-    <button class="btn-connect" id="btn-connect">✦ &nbsp; Conectar con Google &nbsp; ✦</button>
+    <button class="btn-connect" id="btn-connect" style="margin-top:.5rem;">
+      <span style="display:flex;align-items:center;justify-content:center;gap:.7rem;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/><path d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
+        Entrar con Google
+      </span>
+    </button>
     <div class="setup-err" id="setup-err"></div>
   </div>
 </section>
@@ -625,42 +572,14 @@
 /* ═══════════════════════════════════════════════════
    ESTADO GLOBAL
 ═══════════════════════════════════════════════════ */
-const cfg = { clientId:'', folder:'Mis Etapas', birthYear:1990, sort:'date', personName:'' };
+const GOOGLE_CLIENT_ID = '545250330130-hd9vqfa4fku0coqkas7rnbvkhkaip5bo.apps.googleusercontent.com';
+const cfg = { clientId: GOOGLE_CLIENT_ID, folder:'LA', sort:'date', personName:'' };
 let accessToken = null;
 let stages      = [];
 let stageNames  = {};
 let currentStage= null;
 let currentPage = 0;
 let pages       = [];
-
-// Recuperar configuración guardada para no tener que rellenarla cada vez
-(function loadSaved(){
-  try {
-    const saved = JSON.parse(localStorage.getItem('album-cfg') || '{}');
-    if(saved.clientId)   cfg.clientId   = saved.clientId;
-    if(saved.folder)     cfg.folder     = saved.folder;
-    if(saved.birthYear)  cfg.birthYear  = saved.birthYear;
-    if(saved.sort)       cfg.sort       = saved.sort;
-    if(saved.personName) cfg.personName = saved.personName;
-  } catch(e){}
-  window.addEventListener('DOMContentLoaded', ()=>{
-    if(cfg.clientId)   document.getElementById('f-clientid').value  = cfg.clientId;
-    if(cfg.folder)     document.getElementById('f-folder').value    = cfg.folder;
-    if(cfg.birthYear)  document.getElementById('f-birthyear').value = cfg.birthYear;
-    if(cfg.personName) document.getElementById('f-person').value    = cfg.personName;
-    if(cfg.sort)       document.getElementById('f-sort').value      = cfg.sort;
-  });
-})();
-
-/* ═══════════════════════════════════════════════════
-   ACORDEÓN
-═══════════════════════════════════════════════════ */
-document.getElementById('acc-btn').addEventListener('click', function(){
-  const b = document.getElementById('acc-body');
-  const open = b.classList.toggle('open');
-  this.classList.toggle('open', open);
-  this.setAttribute('aria-expanded', open);
-});
 
 /* ═══════════════════════════════════════════════════
    NAVEGACIÓN DE PANTALLAS
@@ -675,54 +594,39 @@ document.getElementById('shelf-trigger').addEventListener('click',  ()=>show('sc
 document.getElementById('shelf-trigger').addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); show('screen-catalog'); }});
 document.getElementById('btn-back').addEventListener('click',        ()=>show('screen-home'));
 document.getElementById('btn-book-back').addEventListener('click',   ()=>show('screen-catalog'));
-document.getElementById('btn-signout').addEventListener('click',     ()=>{ google.accounts.oauth2.revoke(accessToken, ()=>{}); location.reload(); });
+document.getElementById('btn-signout').addEventListener('click',     ()=>{ try{ google.accounts.oauth2.revoke(accessToken, ()=>{}); }catch(e){} location.reload(); });
 
 /* ═══════════════════════════════════════════════════
    CONEXIÓN GOOGLE OAUTH2
 ═══════════════════════════════════════════════════ */
 document.getElementById('btn-connect').addEventListener('click', async () => {
-  const clientId    = document.getElementById('f-clientid').value.trim();
-  cfg.folder        = document.getElementById('f-folder').value.trim() || 'Mis Etapas';
-  cfg.birthYear     = parseInt(document.getElementById('f-birthyear').value) || 1990;
-  cfg.sort          = document.getElementById('f-sort').value;
-  cfg.personName    = document.getElementById('f-person').value.trim();
-  cfg.clientId      = clientId;
-
-  if(!clientId){ showErr('Introduce tu Google OAuth Client ID.'); return; }
-
   const btn = document.getElementById('btn-connect');
   btn.disabled = true;
-  btn.textContent = 'Conectando con Google…';
+  btn.innerHTML = '<span style="display:flex;align-items:center;justify-content:center;gap:.5rem;"><div class="spinner" style="width:16px;height:16px;border-width:2px;"></div> Conectando…</span>';
   clearErr();
 
-  // Cargar la librería de Google si aún no está lista
   try {
     await ensureGapiLoaded();
-    const token = await requestGoogleToken(clientId);
+    const token = await requestGoogleToken(cfg.clientId);
     accessToken = token;
 
-    // Guardar configuración para la próxima vez
-    localStorage.setItem('album-cfg', JSON.stringify(cfg));
-
-    // Obtener info del usuario
     const me = await driveGet('https://www.googleapis.com/oauth2/v2/userinfo');
-    const displayName = cfg.personName || me.name || '';
+    const firstName = (me.name || '').split(' ')[0] || '';
 
-    document.getElementById('home-title').innerHTML = displayName
-      ? `${displayName.split(' ')[0]}'s <em>Etapas</em>`
+    document.getElementById('home-title').innerHTML = firstName
+      ? `${firstName}'s <em>Etapas</em>`
       : 'Mis <em>Etapas</em>';
-    document.getElementById('home-sub').textContent  = `Álbum de vida · ${cfg.folder}`;
+    document.getElementById('home-sub').textContent  = 'Álbum de vida · LA';
     document.getElementById('user-name').textContent = me.name || me.email || '';
 
-    // Cargar nombres guardados
     stageNames = JSON.parse(localStorage.getItem('stage-names')||'{}');
 
     show('screen-home');
     loadStageIndex();
   } catch(err) {
     showErr('Error al conectar: ' + (err.message || err));
-    btn.disabled    = false;
-    btn.textContent = '✦  Conectar con Google  ✦';
+    btn.disabled = false;
+    btn.innerHTML = '<span style="display:flex;align-items:center;justify-content:center;gap:.7rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/><path d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>Entrar con Google</span>';
   }
 });
 
@@ -814,7 +718,6 @@ async function loadStageIndex(){
     stages = [];
     await Promise.all(numeric.map(async f=>{
       const num  = parseInt(f.name);
-      const year = cfg.birthYear + num - 1;
 
       // Primera imagen como thumbnail
       let thumb = null;
@@ -826,7 +729,7 @@ async function loadStageIndex(){
       });
       if(imgs.files.length) thumb = imgs.files[0].thumbnailLink;
 
-      stages.push({ id:f.id, num, year, thumb, name:f.name });
+      stages.push({ id:f.id, num, thumb, name:f.name });
     }));
     stages.sort((a,b)=>a.num-b.num);
 
@@ -863,7 +766,6 @@ function renderShelf(){
         ${stage.thumb ? `<img src="${stage.thumb}" alt="Foto etapa ${stage.num}" loading="lazy" />` : ''}
         <div class="bm-label">
           <span class="bm-num">${stage.num}</span>
-          <span class="bm-year">${stage.year}</span>
         </div>
       </div>`;
 
@@ -894,7 +796,7 @@ function renderShelf(){
 async function openBook(stage){
   show('screen-book');
   document.getElementById('book-stage-label').textContent =
-    stageNames[stage.id] ? `${stageNames[stage.id]} · Etapa ${stage.num}` : `Etapa ${stage.num} · ${stage.year}`;
+    stageNames[stage.id] ? `${stageNames[stage.id]} · Etapa ${stage.num}` : `Etapa ${stage.num}`;
 
   const container = document.getElementById('book-pages');
   container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;"><div class="spinner"></div></div>';
@@ -970,7 +872,6 @@ function makePage(type, stage, photo=null, idx=null){
     front.innerHTML = `
       <div class="cover-ornament">✦ ✦ ✦</div>
       <div class="cover-num">${stage.num}</div>
-      <div class="cover-year">${stage.year}</div>
       ${customName ? `<div class="cover-title">${customName}</div>` : ''}
       <div class="cover-ornament" style="margin-top:.5rem">✦ ✦ ✦</div>`;
     back.className += ' blank-page';
